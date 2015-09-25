@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--List View Controller-->
@@ -59,10 +60,10 @@
             </objects>
             <point key="canvasLocation" x="943" y="201"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="KFw-gV-WyL">
             <objects>
-                <viewController id="TdL-V2-NyG" sceneMemberID="viewController">
+                <viewController id="TdL-V2-NyG" customClass="DetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J7L-Cd-KBY"/>
                         <viewControllerLayoutGuide type="bottom" id="0ze-LM-6TM"/>
@@ -70,8 +71,48 @@
                     <view key="view" contentMode="scaleToFill" id="iE2-Bd-imP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add Title Here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jzQ-SI-V0O">
+                                <rect key="frame" x="20" y="72" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TdL-V2-NyG" id="LeN-b3-Ccb"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c8P-1M-JH7">
+                                <rect key="frame" x="20" y="110" width="560" height="423"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lv8-pX-dsz">
+                                <rect key="frame" x="277" y="550" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="MCU-nD-cCk"/>
+                                </constraints>
+                                <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clearButtonTapped:" destination="TdL-V2-NyG" eventType="touchUpInside" id="Bfp-Sx-SYM"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jzQ-SI-V0O" firstAttribute="trailing" secondItem="iE2-Bd-imP" secondAttribute="trailingMargin" id="ABL-nP-y5J"/>
+                            <constraint firstItem="c8P-1M-JH7" firstAttribute="trailing" secondItem="jzQ-SI-V0O" secondAttribute="trailing" id="Bhb-9C-Ekc"/>
+                            <constraint firstItem="c8P-1M-JH7" firstAttribute="top" secondItem="jzQ-SI-V0O" secondAttribute="bottom" constant="8" symbolic="YES" id="L7q-N3-DpX"/>
+                            <constraint firstAttribute="bottom" secondItem="lv8-pX-dsz" secondAttribute="bottom" constant="20" symbolic="YES" id="XMt-7B-iBS"/>
+                            <constraint firstItem="lv8-pX-dsz" firstAttribute="top" secondItem="c8P-1M-JH7" secondAttribute="bottom" constant="17" id="ZPP-Kv-91E"/>
+                            <constraint firstItem="jzQ-SI-V0O" firstAttribute="leading" secondItem="c8P-1M-JH7" secondAttribute="leading" id="azh-Dn-Pna"/>
+                            <constraint firstItem="lv8-pX-dsz" firstAttribute="centerX" secondItem="c8P-1M-JH7" secondAttribute="centerX" id="bGh-VR-mqY"/>
+                            <constraint firstItem="c8P-1M-JH7" firstAttribute="leading" secondItem="iE2-Bd-imP" secondAttribute="leadingMargin" id="qcU-MP-eFs"/>
+                            <constraint firstItem="jzQ-SI-V0O" firstAttribute="top" secondItem="J7L-Cd-KBY" secondAttribute="bottom" constant="8" symbolic="YES" id="w65-Ia-zIt"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="textField" destination="jzQ-SI-V0O" id="5UZ-TH-aGx"/>
+                        <outlet property="textView" destination="c8P-1M-JH7" id="WbX-gl-VfD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcw-4w-Ghd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

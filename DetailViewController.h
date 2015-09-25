@@ -1,13 +1,13 @@
 //
-//  DetailViewController.m
+//  DetailViewController.h
 //  DayX
 //
 //  Created by Benjamin Thomas Gurrola on 9/24/15.
 //  Copyright © 2015 DevMountain. All rights reserved.
 //
 
-#import "DetailViewController.h"
+#import <UIKit/UIKit.h>
 
-@implementation DetailViewController
+@interface DetailViewController : UIViewController
 
 @end
